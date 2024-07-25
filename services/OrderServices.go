@@ -2,6 +2,7 @@ package services
 
 import (
 	"order-ms/consumer/domain"
+	"order-ms/consumer/handlers"
 	"order-ms/consumer/repositories"
 )
 
@@ -11,9 +12,8 @@ type OrderService struct {
 
 func (service *OrderService) Create(email, status string, total float32) (*domain.Orders, error) {
 	order, err := service.repository.CreateOrder(email, status, total)
-	if err != nil {
-		return nil, err
-	}
+	handlers.CheckErr(err)
+
 	return order, nil
 }
 

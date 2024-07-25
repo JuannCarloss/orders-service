@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"order-ms/consumer/handlers"
 
 	"github.com/gocql/gocql"
 )
@@ -16,9 +17,7 @@ func InitCluster() (*gocql.Session, error) {
 	cluster.Keyspace = "orderms"
 	Session, err := cluster.CreateSession()
 
-	if err != nil {
-		panic(err)
-	}
+	handlers.CheckErr(err)
 
 	fmt.Println("success")
 

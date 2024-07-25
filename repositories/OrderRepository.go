@@ -1,9 +1,9 @@
 package repositories
 
 import (
-	"fmt"
 	"order-ms/consumer/config"
 	"order-ms/consumer/domain"
+	"order-ms/consumer/handlers"
 	"time"
 
 	"github.com/gocql/gocql"
@@ -25,8 +25,7 @@ func (repository *OrderRepository) CreateOrder(email, status string, total float
         VALUES (?, ?, ?, ?, ?)`,
 		order.ID, order.Customer_email, order.Timestamp, order.Status, order.Total).Exec(); err != nil {
 
-		fmt.Println("Error while inserting data: ", err)
-		return nil, err
+		handlers.CheckErr(err)
 	}
 
 	return order, nil
