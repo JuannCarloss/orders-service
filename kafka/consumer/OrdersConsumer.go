@@ -12,7 +12,7 @@ import (
 
 var (
 	broker = []string{"localhost:9092"}
-	topic  = "orders"
+	topic  = "order"
 )
 
 func ConsumeOrders() {
