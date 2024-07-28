@@ -21,9 +21,9 @@ func (repository *OrderRepository) CreateOrder(email, status string, total float
 	order.Total = total
 
 	if err := repository.db.Query(`
-        INSERT INTO orders (id, email, date, status, total_price)
-        VALUES (?, ?, ?, ?, ?)`,
-		order.ID, order.Customer_email, order.Timestamp, order.Status, order.Total).Exec(); err != nil {
+        INSERT INTO orders (email, date, status, total_price)
+        VALUES (?, ?, ?, ?)`,
+		order.Customer_email, order.Timestamp, order.Status, order.Total).Exec(); err != nil {
 
 		handlers.CheckErr(err)
 	}
