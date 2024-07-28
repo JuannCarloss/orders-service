@@ -2,7 +2,6 @@ package consumer
 
 import (
 	"encoding/json"
-	"log"
 	"order-ms/consumer/domain"
 	"order-ms/consumer/handlers"
 	"order-ms/consumer/services"
@@ -43,10 +42,7 @@ func ConsumeOrders() {
 				err := json.Unmarshal([]byte(msg.Value), &order)
 
 				handlers.CheckErr(err)
-
-				svc.Create(order.Customer_email, order.Status, order.Total)
-
-				log.Println("Received messages", string(msg.Value))
+				svc.Create(order.Customer_email, order.Status, order.Timestamp, order.Total)
 			}
 		}
 	}()
