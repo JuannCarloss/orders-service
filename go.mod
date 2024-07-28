@@ -5,7 +5,6 @@ go 1.22.1
 require (
 	github.com/IBM/sarama v1.43.2
 	github.com/gocql/gocql v1.6.0
-	github.com/pborman/uuid v1.2.1
 )
 
 require (
@@ -14,7 +13,6 @@ require (
 	github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/google/uuid v1.6.0 // indirect
 	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
