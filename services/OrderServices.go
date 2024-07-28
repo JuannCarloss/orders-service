@@ -10,8 +10,8 @@ type OrderService struct {
 	repository *repositories.OrderRepository
 }
 
-func (service *OrderService) Create(email, status string, total float32) (*domain.Orders, error) {
-	order, err := service.repository.CreateOrder(email, status, total)
+func (service *OrderService) Create(email, status, date string, total float32) (*domain.Orders, error) {
+	order, err := service.repository.CreateOrder(email, status, date, total)
 	handlers.CheckErr(err)
 
 	return order, nil
